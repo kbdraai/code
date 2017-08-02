@@ -1,0 +1,28 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="container-fluid div-center">
+    <div class="row">
+        <div class="col-md-6 margin-bottom-30">
+            <table class="table table-bordered table-striped smaller-font success table-responsive">
+                <colgroup>
+                    <col>
+                    <col span="2" class="success">
+                    <col span="2" class="success">
+                </colgroup>
+
+                {% for row in table %}
+                    <tr>
+                    {% for cell in row %}
+                        {% if forloop.first or forloop.parentloop.first %} <th class="table-primary"> {% else %} <td> {% endif %}
+                            {{ cell }}
+                        {% if forloop.first or forloop.parentloop.first %} </th> {% else %} </td> {% endif %}
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
